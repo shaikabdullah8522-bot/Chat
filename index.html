@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ShiChat - Your AI Assistant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icon.png" />
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log("Service Worker Registered ✅"))
+        .catch(err => console.error("Service Worker Failed ❌", err));
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>ShiChat 🤖</h1>
+    <div class="toggles">
+      <select id="modeSelect">
+        <option value="chat">💬 Chat</option>
+        <option value="website">🌐 Website Builder</option>
+        <option value="app">📱 App Creator</option>
+        <option value="ai">🤖 AI Assistant Designer</option>
+      </select>
+      <button id="darkToggle">🌙</button>
+      <button id="micBtn">🎤</button>
+    </div>
+  </header>
+  <main>
+    <div id="chatBox"></div>
+    <form id="chatForm">
+      <input type="text" id="userInput" placeholder="Ask something..." autocomplete="off" required />
+      <button type="submit">Send</button>
+    </form>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
